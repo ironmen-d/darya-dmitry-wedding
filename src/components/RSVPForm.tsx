@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { toast } from "sonner";
 
@@ -191,6 +192,11 @@ const RSVPForm: React.FC = () => {
         setStep(2);
       } 
       else if (step === 2) {
+        if (!isStep2Complete()) {
+          toast.error("Пожалуйста, ответьте на все вопросы!");
+          return;
+        }
+        
         const success = await sendToTelegram();
         if (success) {
           setShowSuccess(true);
@@ -228,7 +234,7 @@ const RSVPForm: React.FC = () => {
         <div className="flex justify-center">
           <button 
             onClick={resetForm} 
-            className="px-6 py-2 bg-wedding-dusty-pink hover:bg-wedding-terracotta text-white rounded-md transition-colors"
+            className="px-6 py-2 bg-wedding-terracotta hover:bg-wedding-terracotta/80 text-white rounded-md transition-colors"
           >
             Заполнить снова
           </button>
@@ -251,7 +257,7 @@ const RSVPForm: React.FC = () => {
         <div className="flex justify-center">
           <button 
             onClick={resetForm} 
-            className="px-6 py-2 bg-wedding-dusty-pink hover:bg-wedding-terracotta text-white rounded-md transition-colors"
+            className="px-6 py-2 bg-wedding-terracotta hover:bg-wedding-terracotta/80 text-white rounded-md transition-colors"
           >
             Заполнить снова
           </button>
@@ -485,7 +491,7 @@ const RSVPForm: React.FC = () => {
                       checked={formData.alcohol === 'Не пью алкоголь'} 
                       onChange={handleRadioChange} 
                     />
-                    <label htmlFor="alcohol-none" className="ml-2">Не пь�� алкоголь</label>
+                    <label htmlFor="alcohol-none" className="ml-2">Не пью алкоголь</label>
                   </div>
                 </div>
               </div>
@@ -635,10 +641,11 @@ const RSVPForm: React.FC = () => {
               </button>
               <button 
                 type="submit" 
+                disabled={!isStep2Complete()}
                 className={`px-6 py-2 rounded-md transition-colors ${
-                  isStep2Complete() 
-                  ? 'bg-wedding-terracotta text-white hover:bg-wedding-terracotta/80' 
-                  : 'bg-wedding-dusty-pink text-white hover:bg-wedding-dusty-pink/80'
+                  !isStep2Complete() 
+                  ? 'bg-gray-400 text-white opacity-50 cursor-not-allowed' 
+                  : 'bg-wedding-terracotta text-white hover:bg-wedding-terracotta/80'
                 }`}
               >
                 Присоединиться к празднику
