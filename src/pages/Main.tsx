@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button';
 import CountdownTimer from '../components/CountdownTimer';
 import RSVPForm from '../components/RSVPForm';
 import { Heart, Clock, MapPin, Calendar, MessageSquare, Phone } from 'lucide-react';
+import { ContactDialog } from '../components/ContactDialog';
+
 const Main = () => {
   const weddingDate = new Date('2025-09-25T12:15:00');
   const colorPalette = [{
@@ -214,43 +216,30 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
 
-      {/* Цветовая палитра */}
+      {/* Color palette - Updated heart shapes */}
       <section id="colors" className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-10">Цветовая палитра праздника</h2>
           
           <div className="flex flex-wrap justify-center gap-6">
-            {colorPalette.map((color, index) => <div key={index} className="text-center">
-                <div className="heart-shape" style={{
-              transform: 'rotate(45deg)'
-            }}>
-                  <div style={{
-                backgroundColor: color.color,
-                position: 'absolute',
-                width: '100%',
-                height: '100%'
-              }}></div>
-                  <div style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                left: '-50%',
-                top: '0',
-                backgroundColor: color.color
-              }}></div>
-                  <div style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                borderRadius: '50%',
-                top: '-50%',
-                left: '0',
-                backgroundColor: color.color
-              }}></div>
+            {colorPalette.map((color, index) => (
+              <div key={index} className="text-center">
+                <div 
+                  className="relative inline-block w-16 h-16 mx-1" 
+                >
+                  <svg 
+                    viewBox="0 0 24 24" 
+                    fill={color.color} 
+                    stroke="rgba(0,0,0,0.1)" 
+                    strokeWidth="0.5" 
+                    className="w-full h-full"
+                  >
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
                 </div>
                 <p className="mt-2 text-sm font-medium">{color.name}</p>
-              </div>)}
+              </div>
+            ))}
           </div>
           
           <p className="text-center mt-8 text-gray-600 max-w-lg mx-auto">
@@ -263,7 +252,7 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
 
-      {/* FAQ */}
+      {/* FAQ - Enhanced dividers */}
       <section id="faq" className="py-16 px-4 bg-wedding-blue-gray/10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-10 flex justify-center items-center">
@@ -325,7 +314,7 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
       
-      {/* Контакты */}
+      {/* Contacts - Updated with dialog */}
       <section id="contacts" className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-8 flex justify-center items-center">
@@ -333,15 +322,19 @@ const Main = () => {
             <span>Свяжитесь с нами</span>
           </h2>
           
-          <p className="text-lg md:text-xl mb-8">Дарья и Дмитрий</p>
-          
           <div className="flex flex-col md:flex-row justify-center gap-4 mt-6">
-            <a href="https://wa.me/79091633036" target="_blank" rel="noopener noreferrer" className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md transition-colors inline-flex items-center justify-center">
-              Написать в WhatsApp
-            </a>
-            <a href="https://t.me/+79091633036" target="_blank" rel="noopener noreferrer" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md transition-colors inline-flex items-center justify-center">
-              Написать в Telegram
-            </a>
+            <ContactDialog 
+              type="whatsapp" 
+              buttonText="Написать в WhatsApp" 
+              dariaPhone="+79091633036" 
+              dmitryPhone="+79067250565" 
+            />
+            <ContactDialog 
+              type="telegram" 
+              buttonText="Написать в Telegram" 
+              dariaPhone="+79091633036" 
+              dmitryPhone="+79067250565" 
+            />
           </div>
           
           <p className="text-sm text-gray-500 mt-12">

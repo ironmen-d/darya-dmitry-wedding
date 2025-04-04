@@ -33,7 +33,7 @@ const Welcome = () => {
         <div className="text-2xl md:text-3xl font-serif font-light my-6">25.09.2025</div>
         <Button 
           onClick={handleButtonClick}
-          className="mt-4 bg-wedding-dusty-pink hover:bg-wedding-terracotta text-white px-8 py-2 rounded-md transition-all hover:shadow-lg font-medium"
+          className="mt-4 px-8 py-2 rounded-md transition-all hover:shadow-lg font-medium text-white"
         >
           Открыть приглашение
         </Button>
