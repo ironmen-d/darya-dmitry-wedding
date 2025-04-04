@@ -98,7 +98,7 @@
   
   .section-divider::before, .section-divider::after {
     content: "";
-    @apply block flex-grow h-px bg-wedding-dusty-pink/50 mx-4;
+    @apply block flex-grow h-px bg-wedding-dusty-pink/80 mx-4;
   }
   
   .welcome-container {
@@ -143,7 +143,7 @@
   }
 
   .faq-item {
-    @apply border-b border-wedding-dusty-pink py-4 last:border-b-0;
+    @apply border-b border-wedding-dusty-pink/80 py-4 last:border-b-0;
   }
   
   .rsvp-card {

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { toast } from "sonner";
 
 interface FormData {
@@ -36,6 +36,11 @@ const RSVPForm: React.FC = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showRegret, setShowRegret] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
+  const rsvpSectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    rsvpSectionRef.current = document.getElementById('rsvp') as HTMLDivElement;
+  }, []);
 
   const validatePhone = (phone: string): boolean => {
     const phoneRegex = /^\+7\d{10}$/;
@@ -56,6 +61,15 @@ const RSVPForm: React.FC = () => {
       }
     }
     return false;
+  };
+
+  const isStep2Complete = () => {
+    return formData.menu !== '' && 
+           formData.alcohol !== '' && 
+           (formData.allergies === false || (formData.allergies === true && formData.allergiesText !== '')) &&
+           formData.transport !== '' &&
+           (formData.transport !== 'own' || (formData.transport === 'own' && formData.carNumber !== '')) &&
+           (formData.questions === false || (formData.questions === true && formData.questionsText !== ''));
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -168,6 +182,9 @@ const RSVPForm: React.FC = () => {
       const success = await sendToTelegram();
       if (success) {
         setShowRegret(true);
+        if (rsvpSectionRef.current) {
+          rsvpSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     } else {
       if (step === 1) {
@@ -177,6 +194,9 @@ const RSVPForm: React.FC = () => {
         const success = await sendToTelegram();
         if (success) {
           setShowSuccess(true);
+          if (rsvpSectionRef.current) {
+            rsvpSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+          }
         }
       }
     }
@@ -193,6 +213,9 @@ const RSVPForm: React.FC = () => {
     setStep(1);
     setShowSuccess(false);
     setShowRegret(false);
+    if (rsvpSectionRef.current) {
+      rsvpSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   if (showSuccess) {
@@ -205,7 +228,7 @@ const RSVPForm: React.FC = () => {
         <div className="flex justify-center">
           <button 
             onClick={resetForm} 
-            className="px-6 py-2 bg-wedding-dusty-pink text-white rounded-md hover:bg-wedding-terracotta transition-colors"
+            className="px-6 py-2 bg-wedding-dusty-pink hover:bg-wedding-terracotta text-white rounded-md transition-colors"
           >
             Заполнить снова
           </button>
@@ -228,7 +251,7 @@ const RSVPForm: React.FC = () => {
         <div className="flex justify-center">
           <button 
             onClick={resetForm} 
-            className="px-6 py-2 bg-wedding-dusty-pink text-white rounded-md hover:bg-wedding-terracotta transition-colors"
+            className="px-6 py-2 bg-wedding-dusty-pink hover:bg-wedding-terracotta text-white rounded-md transition-colors"
           >
             Заполнить снова
           </button>
@@ -338,10 +361,12 @@ const RSVPForm: React.FC = () => {
                 type="submit" 
                 disabled={isNextButtonDisabled()} 
                 className={`px-6 py-2 rounded-md transition-colors ${
-                  formData.attendance === 'unable' 
-                    ? 'bg-gray-400 text-white hover:bg-gray-500' 
-                    : 'bg-wedding-dusty-pink text-white hover:bg-wedding-terracotta'
-                } ${isNextButtonDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  isNextButtonDisabled() 
+                  ? 'bg-gray-400 text-white hover:bg-gray-500 opacity-50 cursor-not-allowed' 
+                  : formData.attendance === 'unable' 
+                    ? 'bg-gray-500 text-white hover:bg-gray-600' 
+                    : 'bg-wedding-terracotta text-white hover:bg-wedding-terracotta/80'
+                }`}
               >
                 {formData.attendance === 'unable' ? 'С сожалением отказаться' : 'Продолжить'}
               </button>
@@ -460,7 +485,7 @@ const RSVPForm: React.FC = () => {
                       checked={formData.alcohol === 'Не пью алкоголь'} 
                       onChange={handleRadioChange} 
                     />
-                    <label htmlFor="alcohol-none" className="ml-2">Не пью алкоголь</label>
+                    <label htmlFor="alcohol-none" className="ml-2">Не пь�� алкоголь</label>
                   </div>
                 </div>
               </div>
@@ -610,7 +635,11 @@ const RSVPForm: React.FC = () => {
               </button>
               <button 
                 type="submit" 
-                className="px-6 py-2 bg-wedding-dusty-pink text-white rounded-md hover:bg-wedding-terracotta transition-colors"
+                className={`px-6 py-2 rounded-md transition-colors ${
+                  isStep2Complete() 
+                  ? 'bg-wedding-terracotta text-white hover:bg-wedding-terracotta/80' 
+                  : 'bg-wedding-dusty-pink text-white hover:bg-wedding-dusty-pink/80'
+                }`}
               >
                 Присоединиться к празднику
               </button>

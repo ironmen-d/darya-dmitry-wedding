@@ -70,7 +70,6 @@ const Main = () => {
     description: 'С легким сердцем и радостью в душе мы отправляемся домой, чтобы начать нашу новую главу. А вы — едете отдыхать, заряженные теплом и хорошим настроением. Спасибо, что были с нами!'
   }];
   return <div className="main-container bg-gradient-to-b from-white to-wedding-blue-gray/10">
-      {/* Герой с именами и счетчиком */}
       <section className="min-h-screen flex flex-col items-center justify-center py-16 px-4 relative overflow-hidden">
         <div className="floating-decoration top-20 left-[10%]">
           <Heart size={40} className="text-wedding-dusty-pink/50" />
@@ -106,7 +105,6 @@ const Main = () => {
         </div>
       </section>
 
-      {/* О нас / История */}
       <section id="story" className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-10">Наша история</h2>
@@ -139,7 +137,6 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
 
-      {/* Места проведения */}
       <section id="locations" className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-10">Места проведения</h2>
@@ -187,7 +184,6 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
 
-      {/* Расписание */}
       <section id="schedule" className="py-16 px-4 bg-wedding-mint/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-10 flex justify-center items-center">
@@ -216,17 +212,14 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
 
-      {/* Color palette - Updated heart shapes */}
       <section id="colors" className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-10">Цветовая палитра праздника</h2>
           
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-6 justify-items-center">
             {colorPalette.map((color, index) => (
               <div key={index} className="text-center">
-                <div 
-                  className="relative inline-block w-16 h-16 mx-1" 
-                >
+                <div className="relative inline-block w-16 h-16">
                   <svg 
                     viewBox="0 0 24 24" 
                     fill={color.color} 
@@ -252,7 +245,6 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
 
-      {/* FAQ - Enhanced dividers */}
       <section id="faq" className="py-16 px-4 bg-wedding-blue-gray/10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-10 flex justify-center items-center">
@@ -275,7 +267,6 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
 
-      {/* RSVP */}
       <section id="rsvp" className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-6">Подтвердите ваше присутствие</h2>
@@ -300,7 +291,6 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
       
-      {/* Обещание */}
       <section className="py-12 px-4 bg-wedding-peach/30">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-serif mb-4">Мы обещаем торт, танцы и море эмоций.</h2>
@@ -314,7 +304,6 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
       
-      {/* Contacts - Updated with dialog */}
       <section id="contacts" className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-8 flex justify-center items-center">
@@ -343,7 +332,6 @@ const Main = () => {
         </div>
       </section>
       
-      {/* Футер */}
       <footer className="py-8 bg-wedding-terracotta text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <p className="font-hand text-2xl mb-2">Дарья & Дмитрий</p>

@@ -8,7 +8,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 
 interface ContactDialogProps {
   type: 'whatsapp' | 'telegram';
@@ -45,7 +44,7 @@ export function ContactDialog({ type, buttonText, dariaPhone, dmitryPhone }: Con
             href={getContactUrl(dariaPhone)} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-wedding-dusty-pink hover:bg-wedding-terracotta text-white px-6 py-3 rounded-md transition-colors inline-flex items-center justify-center"
+            className="bg-wedding-terracotta hover:bg-wedding-terracotta/80 text-white px-6 py-3 rounded-md transition-colors inline-flex items-center justify-center"
           >
             Дарья
           </a>
@@ -53,7 +52,7 @@ export function ContactDialog({ type, buttonText, dariaPhone, dmitryPhone }: Con
             href={getContactUrl(dmitryPhone)} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-wedding-dusty-pink hover:bg-wedding-terracotta text-white px-6 py-3 rounded-md transition-colors inline-flex items-center justify-center"
+            className="bg-wedding-terracotta hover:bg-wedding-terracotta/80 text-white px-6 py-3 rounded-md transition-colors inline-flex items-center justify-center"
           >
             Дмитрий
           </a>
