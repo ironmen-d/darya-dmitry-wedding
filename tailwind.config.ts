@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'serif': ['Playfair Display', 'serif'],
+				'sans': ['Montserrat', 'sans-serif'],
+				'hand': ['Great Vibes', 'cursive'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,6 +67,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				wedding: {
+					'peach': '#FDE1D3',
+					'dusty-pink': '#FFDEE2',
+					'terracotta': '#E07A5F',
+					'blue-gray': '#CDDEEE',
+					'mint': '#D1E8E2',
+					'brown': '#8B5E3C',
 				}
 			},
 			borderRadius: {
@@ -70,26 +84,62 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'fade-out': {
+					'0%': { opacity: '1', transform: 'translateY(0)' },
+					'100%': { opacity: '0', transform: 'translateY(10px)' }
+				},
+				'page-transition': {
+					'0%': { 
+						opacity: '1',
+						transform: 'translateY(0)' 
 					},
-					to: {
-						height: '0'
+					'50%': { 
+						opacity: '0',
+						transform: 'translateY(-30px)' 
+					},
+					'100%': { 
+						opacity: '0',
+						transform: 'translateY(-100vh)' 
 					}
-				}
+				},
+				'dancing-letters': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'heartbeat': {
+					'0%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.1)' },
+					'100%': { transform: 'scale(1)' }
+				},
+                'slide-in': {
+                    '0%': { transform: 'translateY(20px)', opacity: '0' },
+                    '100%': { transform: 'translateY(0)', opacity: '1' }
+                },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'fade-out': 'fade-out 0.3s ease-out',
+				'page-transition': 'page-transition 1s ease-in-out forwards',
+				'dancing-letters': 'dancing-letters 2s ease infinite',
+				'heartbeat': 'heartbeat 1.5s ease infinite',
+                'slide-in': 'slide-in 0.6s ease-out forwards',
+			},
+			backgroundImage: {
+                'floral-pattern': "url('/flowers-bg.png')",
+            }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
