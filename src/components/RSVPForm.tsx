@@ -1,6 +1,5 @@
-
 import React, { useState, useRef } from 'react';
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 interface FormData {
   attendance: string;
@@ -39,7 +38,6 @@ const RSVPForm: React.FC = () => {
   const formRef = useRef<HTMLDivElement>(null);
 
   const validatePhone = (phone: string): boolean => {
-    // Проверка формата +7XXXXXXXXXX
     const phoneRegex = /^\+7\d{10}$/;
     return phoneRegex.test(phone);
   };
@@ -64,7 +62,6 @@ const RSVPForm: React.FC = () => {
     const { name, value } = e.target;
     
     if (name === 'phone') {
-      // Automatically add +7 prefix if not present
       let formattedPhone = value;
       if (value && !value.startsWith('+7')) {
         formattedPhone = '+7' + value.replace(/^\+7/, '');
@@ -72,7 +69,6 @@ const RSVPForm: React.FC = () => {
 
       setFormData({ ...formData, [name]: formattedPhone });
       
-      // Validate phone
       if (formattedPhone && !validatePhone(formattedPhone)) {
         setPhoneError('Телефон должен быть в формате +7XXXXXXXXXX (10 цифр после +7)');
       } else {
@@ -116,7 +112,6 @@ const RSVPForm: React.FC = () => {
           break;
       }
       
-      // Формируем сообщение для Telegram
       let message = `Получен ответ на анкету!\n\nИмя: ${formData.name}\n`;
       
       if (formData.phone) {
@@ -170,17 +165,14 @@ const RSVPForm: React.FC = () => {
     e.preventDefault();
     
     if (formData.attendance === 'unable') {
-      // Отправляем форму для отказа
       const success = await sendToTelegram();
       if (success) {
         setShowRegret(true);
       }
     } else {
-      // Если это первый шаг и мы идем дальше
       if (step === 1) {
         setStep(2);
       } 
-      // Если это последний шаг - отправляем форму
       else if (step === 2) {
         const success = await sendToTelegram();
         if (success) {
