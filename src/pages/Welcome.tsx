@@ -26,14 +26,14 @@ const Welcome = () => {
         <Heart size={15} className="text-wedding-dusty-pink/80" />
       </div>
       
-      <div className="welcome-card">
-        <h1 className="font-hand text-4xl md:text-5xl lg:text-6xl mb-4 text-wedding-terracotta">Дарья и Дмитрий</h1>
-        <div className="w-16 h-0.5 bg-wedding-dusty-pink/50 mx-auto my-4"></div>
-        <p className="text-lg md:text-xl font-serif mb-4">С большой радостью приглашаем вас на нашу свадьбу</p>
-        <div className="text-2xl md:text-3xl font-serif font-light my-6">25.09.2025</div>
+      <div className="welcome-card py-16">
+        <h1 className="font-hand text-4xl md:text-5xl lg:text-6xl mb-6 text-wedding-terracotta">Дарья и Дмитрий</h1>
+        <div className="w-16 h-0.5 bg-wedding-dusty-pink/50 mx-auto my-6"></div>
+        <p className="text-lg md:text-xl font-serif mb-6">С большой радостью приглашаем вас на нашу свадьбу</p>
+        <div className="text-2xl md:text-3xl font-serif font-light my-8">25.09.2025</div>
         <Button 
           onClick={handleButtonClick}
-          className="mt-4 px-8 py-2 rounded-md transition-all hover:shadow-lg font-medium text-white"
+          className="mt-6 px-8 py-2 rounded-md transition-all hover:shadow-lg font-medium text-white"
         >
           Открыть приглашение
         </Button>
