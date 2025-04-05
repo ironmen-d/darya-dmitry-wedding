@@ -55,7 +55,7 @@ const Main = () => {
   }, {
     time: '13:00–14:00',
     title: 'Отправляемся в Loft House',
-    description: 'После регистрации мы приглашаем вас в уютный домик Loft House, где продолжится наш праздник. Не з��будьте указать в опросе, нужен ли вам трансфер или вы поедете на своей машине.'
+    description: 'После регистрации мы приглашаем вас в уютный домик Loft House, где продолжится наш праздник. Не забудьте указать в опросе, нужен ли вам трансфер или вы поедете на своей машине.'
   }, {
     time: '15:00–20:00',
     title: 'Сердце нашего праздника',
@@ -112,8 +112,12 @@ const Main = () => {
           <div className="bg-white bg-opacity-80 rounded-lg shadow-md p-8 mb-12">
             <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
               <div className="w-full md:w-1/3">
-                <div className="aspect-square bg-wedding-dusty-pink/20 rounded-lg flex items-center justify-center">
-                  <Heart size={64} className="text-wedding-terracotta animate-heartbeat" />
+                <div className="aspect-square rounded-lg overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/8aecc048-f792-4b35-b8f3-2513e1d15536.png" 
+                    alt="Детские фотографии будущих супругов" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               <div className="w-full md:w-2/3">
@@ -151,7 +155,7 @@ const Main = () => {
                   <h3 className="text-xl font-serif mb-2">Торжественная регистрация</h3>
                   <p className="text-gray-700 mb-2 font-medium">Дворец бракосочетания №4</p>
                   <p className="text-gray-600">г. Москва, Бутырская улица, 17</p>
-                  <a href="https://maps.google.com/?q=Дворец+бракосочетания+№4,+г.+Москва,+Бутырская+улица,+17" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm text-wedding-terracotta hover:underline">
+                  <a href="https://yandex.ru/maps/-/CHR~7DIg" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm text-wedding-terracotta hover:underline">
                     Посмотреть на карте
                   </a>
                 </div>
@@ -170,7 +174,7 @@ const Main = () => {
                   <p className="text-gray-500 text-sm mt-1 italic">
                     От улицы Согласия, 13 нужно пройти еще пару минут пешком до самого здания Loft House
                   </p>
-                  <a href="https://maps.google.com/?q=Loft+House,+г.+Красногорск,+улица+Согласия,+13" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm text-wedding-terracotta hover:underline">
+                  <a href="https://yandex.ru/maps/-/CHVNe2zu" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm text-wedding-terracotta hover:underline">
                     Посмотреть на карте
                   </a>
                 </div>
@@ -184,7 +188,7 @@ const Main = () => {
         <Heart size={24} className="text-wedding-dusty-pink mx-2" />
       </div>
 
-      <section id="schedule" className="py-16 px-4 bg-wedding-mint/20">
+      <section id="schedule" className="py-16 px-4 bg-wedding-mint/10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif text-center mb-10 flex justify-center items-center">
             <Calendar className="mr-3 text-wedding-terracotta" />
