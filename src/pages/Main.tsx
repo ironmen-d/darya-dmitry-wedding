@@ -8,22 +8,22 @@ import { ContactDialog } from '../components/ContactDialog';
 const Main = () => {
   const weddingDate = new Date('2025-09-25T12:15:00');
   const colorPalette = [{
-    color: '#FDE1D3',
+    color: '#F7C8A3',
     name: 'Персиковый'
   }, {
-    color: '#FFDEE2',
+    color: '#D8A7A7',
     name: 'Пыльно-розовый'
   }, {
-    color: '#E07A5F',
+    color: '#C15B46',
     name: 'Терракотовый'
   }, {
-    color: '#CDDEEE',
+    color: '#9FBACD',
     name: 'Серо-голубой'
   }, {
-    color: '#D1E8E2',
+    color: '#7EB7A3',
     name: 'Мятный'
   }, {
-    color: '#8B5E3C',
+    color: '#6A4E42',
     name: 'Коричневый'
   }];
   const faqItems = [{
@@ -55,7 +55,7 @@ const Main = () => {
   }, {
     time: '13:00–14:00',
     title: 'Отправляемся в Loft House',
-    description: 'После регистрации мы приглашаем вас в уютный домик Loft House, где продолжится наш праздник. Не забудьте указать в опросе, нужен ли вам трансфер или вы поедете на своей машине.'
+    description: 'После регистрации мы приглашаем вас в уютный домик Loft House, где продолжится наш праздник. Не з��будьте указать в опросе, нужен ли вам трансфер или вы поедете на своей машине.'
   }, {
     time: '15:00–20:00',
     title: 'Сердце нашего праздника',
@@ -218,8 +218,8 @@ const Main = () => {
           
           <div className="grid grid-cols-3 md:grid-cols-6 gap-6 justify-items-center">
             {colorPalette.map((color, index) => (
-              <div key={index} className="text-center">
-                <div className="relative inline-block w-16 h-16">
+              <div key={index} className="text-center flex flex-col items-center">
+                <div className="relative inline-block w-20 h-20">
                   <svg 
                     viewBox="0 0 24 24" 
                     fill={color.color} 

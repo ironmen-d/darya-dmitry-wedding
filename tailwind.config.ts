@@ -69,12 +69,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				wedding: {
-					'peach': '#FDE1D3',
-					'dusty-pink': '#FFDEE2',
-					'terracotta': '#E07A5F',
-					'blue-gray': '#CDDEEE',
-					'mint': '#D1E8E2',
-					'brown': '#8B5E3C',
+					'peach': '#F7C8A3',
+					'dusty-pink': '#D8A7A7',
+					'terracotta': '#C15B46',
+					'blue-gray': '#9FBACD',
+					'mint': '#7EB7A3',
+					'brown': '#6A4E42',
 				}
 			},
 			borderRadius: {
